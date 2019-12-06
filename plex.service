@@ -1,0 +1,15 @@
+[Unit]
+Description=Plex media project
+Requires=docker.service
+After=docker.service
+After=mnt-usb1Tb.mount
+
+[Service]
+Restart=always
+WorkingDirectory=/var/projects/plex
+ExecStart=/usr/local/bin/docker-compose -f docker-compose.yaml up
+ExecStop=/usr/local/bin/docker-compose -f docker-compose.yaml down
+
+[Install]
+WantedBy=multi-user.target
+

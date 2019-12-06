@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  plex:
+    image: kolbasyatin/plex:latest
+    container_name: plex
+    network_mode: "host"
+    volumes:
+      - plex-config:/config
+      - /mnt/usb1Tb:/data
+volumes:
+  plex-config:
+
