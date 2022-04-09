@@ -1,9 +1,15 @@
 version: "3.7"
 services:
   plex:
-    image: kolbasyatin/plex:latest
+    image: kolbasyatin/plex 
+#    image: linuxserver/plex:arm32v7-latest
     container_name: plex
     network_mode: "host"
+    privileged: true
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - VERSION=docker
     volumes:
       - plex-config:/config
       - /mnt/usb1Tb:/data
